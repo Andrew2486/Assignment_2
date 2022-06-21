@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_stats : MonoBehaviour
 {
+    private SpriteRenderer sprite;
     private Animator anim;
     private int attack = 1;
     private int defence = 1;
@@ -23,6 +24,7 @@ public class Player_stats : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         RespawnPoint = transform.position;
+        sprite = GetComponent<SpriteRenderer>();
     }
     public GameObject raycastobject;
     public void FixedUpdate()//more stable update your FPS doesnt affect it
@@ -42,6 +44,14 @@ public class Player_stats : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))//under update or If function has issues
         {
+            if (sprite.flipX == true)//Moves AOE to front of sprite when flipped
+            {
+                attackpoint.transform.position = sprite.transform.position + new Vector3(-0.2f,0f,0f);
+            }
+            else 
+            {
+                attackpoint.transform.position = sprite.transform.position + new Vector3(0.2f, 0f, 0f);
+            }
             Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(attackpoint.position, attackRange, enemy);
             foreach (Collider2D enemy in hitEnemies)
             {
