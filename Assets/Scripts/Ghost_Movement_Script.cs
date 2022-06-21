@@ -6,8 +6,9 @@ using UnityEngine;
 public class Ghost_Movement_Script : MonoBehaviour //Running with keyboard
 {
     public Transform target;
-    //public Transform Ghost;
-    Rigidbody2D rb; 
+    public Transform self;
+    Rigidbody2D rb;
+    BoxCollider2D bc;
 
     public float SPEED = 4.0f;
     public Vector2 motion; //Move direction
@@ -22,19 +23,25 @@ public class Ghost_Movement_Script : MonoBehaviour //Running with keyboard
             motion = direction;
         }
     }
-    private void Awake()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
     void Start()
     {
         target = GameObject.Find("Player").transform;
+        self = GameObject.Find("Ghost").transform;
     }
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         if (target)
         {
             rb.velocity = new Vector2(motion.x, motion.y) * SPEED;
         }
+    }
+    public void stop()
+    {
+        this.rb.velocity = Vector2.zero;
+        Debug.Log("Working");
     }
 }
