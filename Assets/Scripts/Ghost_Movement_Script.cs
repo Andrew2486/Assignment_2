@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class Ghost_Movement_Script : MonoBehaviour //Running with keyboard
 {
+    private Animator anim;
     public Transform target;
     public Transform self;
     Rigidbody2D rb;
     BoxCollider2D bc;
 
-    public float SPEED = 4.0f;
+    public float SPEED = 0.2f;
     public Vector2 motion; //Move direction
 
     private void Update()
@@ -29,6 +30,7 @@ public class Ghost_Movement_Script : MonoBehaviour //Running with keyboard
     }
     void Start()
     {
+        anim = GetComponent<Animator>();
         target = GameObject.Find("Player").transform;
         self = GameObject.Find("Ghost").transform;
     }
@@ -36,7 +38,12 @@ public class Ghost_Movement_Script : MonoBehaviour //Running with keyboard
     {
         if (target)
         {
+            anim.Play("Ghost_Walk");
             rb.velocity = new Vector2(motion.x, motion.y) * SPEED;
+        }
+        if (!target)
+        {
+            anim.Play("Ghost_idle");
         }
     }
     public void stop()

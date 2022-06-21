@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_stats : MonoBehaviour
 {
+    private Animator anim;
     private int attack = 1;
     private int defence = 1;
     private int maxhealth = 10;
@@ -11,6 +12,7 @@ public class Player_stats : MonoBehaviour
     private bool is_Attacking = false;
     private bool can_Attack = true;
     private float attack_timer = 0.5f;
+    public Vector2 RespawnPoint;
 
 
     public Transform attackpoint;
@@ -19,7 +21,8 @@ public class Player_stats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
+        RespawnPoint = transform.position;
     }
     public GameObject raycastobject;
     public void FixedUpdate()//more stable update your FPS doesnt affect it
@@ -30,6 +33,10 @@ public class Player_stats : MonoBehaviour
     void Update()
     {
         Attack();
+        if (Input.GetKey(KeyCode.K))//Temp test on respawn point
+        {
+            Death();
+        }
     }
     public void Attack()
     {
@@ -41,9 +48,9 @@ public class Player_stats : MonoBehaviour
             Debug.Log("We Hit: " + enemy.name);
             enemy.GetComponent<Ghost_Stats>().TakeDamage(attack);
             }
-            is_Attacking = true;
-            can_Attack = false;
-            
+            is_Attacking = true;//Doing nothing right now (checks if player is attacking)
+            can_Attack = false;// Doing nothing right now (Checks if the player can attack(time))
+            anim.Play("Player_Attack");
 
         }
     }
@@ -55,8 +62,13 @@ public class Player_stats : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackpoint.position, attackRange);
     }
+    void Takedamage()
+    { 
+    //On damage taken Hp is removed
+    }
     void Death()
     {
-        
+        //on all HP removed death then respawn if lives >= 0 
+        transform.position = RespawnPoint;
     }
 }
