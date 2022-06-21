@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public class Player_stats : MonoBehaviour
 {
-    private SpriteRenderer sprite;
-    private Animator anim;
-    private int attack = 1;
-    private int defence = 1;
-    private int maxhealth = 10;
-    private int currenthealth = 10;
-    private bool is_Attacking = false;
-    private bool can_Attack = true;
-    private float attack_timer = 0.5f;
+    public SpriteRenderer sprite;
+    public Animator anim;
+    public int attack = 1;
+    public int defence = 1;
+    public int maxhealth = 10;
+    public int currenthealth = 10;
+    public bool is_Attacking = false;
+    public bool can_Attack = true;
+    public float attack_timer = 0.5f;
     public Vector2 RespawnPoint;
-
 
     public Transform attackpoint;
     public float attackRange = 0.5F;
@@ -26,7 +26,7 @@ public class Player_stats : MonoBehaviour
         RespawnPoint = transform.position;
         sprite = GetComponent<SpriteRenderer>();
     }
-    public GameObject raycastobject;
+  //  public GameObject raycastobject;
     public void FixedUpdate()//more stable update your FPS doesnt affect it
     {
        // Attack();
