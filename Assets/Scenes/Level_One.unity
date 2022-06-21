@@ -102503,8 +102503,28 @@ PrefabInstance:
       value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7057951905436131049, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057951905436131049, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057951905436131049, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
       propertyPath: m_Constraints
-      value: 7
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057951905436131049, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057951905436131049, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057951905436131054, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+      propertyPath: SPEED
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7057951905436131061, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
       propertyPath: m_Name
@@ -102600,11 +102620,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7685471896960753810, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -8.372
+      value: -6.476
       objectReference: {fileID: 0}
     - target: {fileID: 7685471896960753810, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 6.273
+      value: 2.457
       objectReference: {fileID: 0}
     - target: {fileID: 7685471896960753810, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
