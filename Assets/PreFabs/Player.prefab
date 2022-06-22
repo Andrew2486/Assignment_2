@@ -65,8 +65,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7057951905436131061}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.016700506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -77,7 +77,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.460849, y: -4.918373}
+  m_AnchoredPosition: {x: -5.6980715, y: -5.211212}
   m_SizeDelta: {x: 0.16, y: 0.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &7057951905436131050
@@ -179,13 +179,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e65fe4375e0d246bc9ff987e89b1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  anim: {fileID: 0}
+  attack: 1
+  defence: 1
+  maxhealth: 10
+  currenthealth: 10
+  is_Attacking: 0
+  can_Attack: 1
+  attack_timer: 0.5
   RespawnPoint: {x: 0, y: 0}
   attackpoint: {fileID: 8984196429441650354}
   attackRange: 0.5
   enemy:
     serializedVersion: 2
     m_Bits: 64
-  raycastobject: {fileID: 0}
 --- !u!95 &1922650342607124053
 Animator:
   serializedVersion: 4
@@ -247,8 +255,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7057951906515934503}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00081300735, y: 0.001516819, z: -2.8651507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

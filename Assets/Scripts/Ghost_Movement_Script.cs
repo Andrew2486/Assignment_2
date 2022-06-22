@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Ghost_Movement_Script : MonoBehaviour //Running with keyboard
 {
+    private SpriteRenderer sprite;
     private Animator anim;
     public Transform target;
     public Transform self;
@@ -20,7 +21,14 @@ public class Ghost_Movement_Script : MonoBehaviour //Running with keyboard
         {
             Vector2 direction = (target.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
+            if (target.position.x >= self.position.x)
+            {
+                sprite.flipX = false;
+            }
+            else
+            {
+                sprite.flipX = true;
+            }
             motion = direction;
         }
     }
@@ -30,6 +38,7 @@ public class Ghost_Movement_Script : MonoBehaviour //Running with keyboard
     }
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         target = GameObject.Find("Player").transform;
         self = GameObject.Find("Ghost").transform;
