@@ -19,6 +19,13 @@ public class Player_stats : MonoBehaviour
     public Transform attackpoint;
     public float attackRange = 0.5F;
     public LayerMask enemy;
+
+
+
+    public AudioSource audioSource;
+    public AudioClip Attack_clip;
+    public AudioClip Hurt_clip;
+    public AudioClip Death_clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +46,7 @@ public class Player_stats : MonoBehaviour
         {
             Death();
         }
+        
     }
     public void Attack()
     {
@@ -56,11 +64,27 @@ public class Player_stats : MonoBehaviour
             foreach (Collider2D enemy in hitEnemies)
             {
             Debug.Log("We Hit: " + enemy.name);
-            enemy.GetComponent<Ghost_Stats>().TakeDamage(attack);
+                if (enemy.name == "Ghost" || enemy.name == "Ghost(Clone)")//Checks to see if Ghost type enemy
+                {
+                    enemy.GetComponent<Ghost_Stats>().TakeDamage(attack);
+                }
+                else if (enemy.name == "Vampire" || enemy.name == "Vampire(Clone)")// Checks to see if Vampire type enemy
+                {
+                    enemy.GetComponent<Vampire_Controller>().TakeDamage(attack);
+                }
+                else if (enemy.name == "Witch" || enemy.name == "Witch(Clone)")// Checks to see if Vampire type enemy
+                {
+                    enemy.GetComponent<Witch_Movement>().TakeDamage(attack);
+                }
+                else if (enemy.name == "Spider" || enemy.name == "Spider(Clone)")// Checks to see if Vampire type enemy
+                {
+                    enemy.GetComponent<Spider_Controller>().TakeDamage(attack);
+                }
             }
             is_Attacking = true;//Doing nothing right now (checks if player is attacking)
             can_Attack = false;// Doing nothing right now (Checks if the player can attack(time))
             anim.Play("Player_Attack");
+            audioSource.PlayOneShot(Attack_clip);
 
         }
     }
@@ -72,13 +96,19 @@ public class Player_stats : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackpoint.position, attackRange);
     }
-    void Takedamage()
-    { 
-    //On damage taken Hp is removed
+    public void Takedamage(int dmg)
+    {
+        audioSource.PlayOneShot(Hurt_clip);
+        currenthealth -= dmg;
+        if (currenthealth <= 0)
+        {
+           // Death();
+        }
     }
     void Death()
     {
         //on all HP removed death then respawn if lives >= 0 
+        audioSource.PlayOneShot(Death_clip);
         transform.position = RespawnPoint;
     }
 }
