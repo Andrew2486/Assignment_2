@@ -73,14 +73,14 @@ public class Vampire_Controller : MonoBehaviour
     public void Attack()
     {
         {
-            if (sprite.flipX == true)//Moves AOE to front of sprite when flipped
-            {
-                attackpoint.transform.position = sprite.transform.position + new Vector3(-0.2f, 0f, 0f);
-            }
-            else
-            {
-                attackpoint.transform.position = sprite.transform.position + new Vector3(0.2f, 0f, 0f);
-            }
+         //   if (sprite.flipX == true)//Moves AOE to front of sprite when flipped
+         //   {
+          //      attackpoint.transform.position = sprite.transform.position + new Vector3(-0.2f, 0f, 0f);
+         //   }
+          //  else
+         //   {
+         //       attackpoint.transform.position = sprite.transform.position + new Vector3(0.2f, 0f, 0f);
+         //   }
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackpoint.position, attackRange, player);
             foreach (Collider2D player in hitPlayer)
             {

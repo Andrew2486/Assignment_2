@@ -26,7 +26,7 @@ public class Level_2_timer : MonoBehaviour
             if (timeLeft > 0)
             {
                 timeLeft -= Time.deltaTime;
-                if (timeLeft < 115 && timeLeft > 114.8)
+                if (timeLeft < 55 && timeLeft > 54.8)
                 {
                     GameObject newEnemy = Instantiate(Ghost, new Vector2(Random.Range(-5f, 5f), Random.Range(-6f, 6f)), Quaternion.identity);
                     GameObject newEnemyV = Instantiate(Vampire, new Vector2(Random.Range(-5f, 5f), Random.Range(-6f, 6f)), Quaternion.identity);

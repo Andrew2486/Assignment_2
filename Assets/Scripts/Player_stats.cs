@@ -84,6 +84,10 @@ public class Player_stats : MonoBehaviour
                 {
                     enemy.GetComponent<Spider_Controller>().TakeDamage(attack);
                 }
+                else if (enemy.name == "Boss")// Checks to see if Boss type enemy
+                {
+                    enemy.GetComponent<Boss_Controller>().TakeDamage(attack);
+                }
             }
             is_Attacking = true;//Doing nothing right now (checks if player is attacking)
             can_Attack = false;// Doing nothing right now (Checks if the player can attack(time))
@@ -112,6 +116,8 @@ public class Player_stats : MonoBehaviour
     }
     void Death()
     {
+        healthBar.Set_Max_HP(maxhealth);
+        currenthealth = maxhealth;
         transform.position = RespawnPoint;
         // Need to make a end game screen for death
     }
