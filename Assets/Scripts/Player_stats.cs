@@ -9,29 +9,33 @@ public class Player_stats : MonoBehaviour
     public Animator anim;
     public int attack = 1;
     public int defence = 1;
-    public int maxhealth = 10;
-    public int currenthealth = 10;
+    public int maxhealth = 25;
+    public int currenthealth = 25;
     public bool is_Attacking = false;
     public bool can_Attack = true;
     public float attack_timer = 0.5f;
     public Vector2 RespawnPoint;
+    public Hud_Script currentLives;
 
     public Transform attackpoint;
     public float attackRange = 0.5F;
     public LayerMask enemy;
 
 
-
     public AudioSource audioSource;
     public AudioClip Attack_clip;
     public AudioClip Hurt_clip;
     public AudioClip Death_clip;
+
+
+    public Hud_Script healthBar;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         RespawnPoint = transform.position;
         sprite = GetComponent<SpriteRenderer>();
+        healthBar.Set_Max_HP(maxhealth);
     }
   //  public GameObject raycastobject;
     public void FixedUpdate()//more stable update your FPS doesnt affect it
@@ -100,15 +104,15 @@ public class Player_stats : MonoBehaviour
     {
         audioSource.PlayOneShot(Hurt_clip);
         currenthealth -= dmg;
+        healthBar.HP(currenthealth);
         if (currenthealth <= 0)
         {
-           // Death();
+            Death();
         }
     }
     void Death()
     {
-        //on all HP removed death then respawn if lives >= 0 
-        audioSource.PlayOneShot(Death_clip);
         transform.position = RespawnPoint;
+        // Need to make a end game screen for death
     }
 }

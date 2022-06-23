@@ -129483,6 +129483,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2908971973796047932, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 2146482638}
+    - target: {fileID: 5294960915063488747, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294960915063488747, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7057951905436131061, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
       propertyPath: m_Name
       value: Player
@@ -129577,3 +129589,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+--- !u!114 &2146482638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5294960913809850934, guid: 7929b22cbf83a94448e2723266bdc0da, type: 3}
+  m_PrefabInstance: {fileID: 2146482637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d5c0cdf28c8e4a9762a1a6347ed3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
